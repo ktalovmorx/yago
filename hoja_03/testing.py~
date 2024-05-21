@@ -1,0 +1,109 @@
+import math
+import inspect
+from copy import deepcopy as copy
+import words
+
+from functools import total_ordering
+
+@total_ordering
+class WrapperStr(str):
+    def __init__(self, s: str):
+        self.str = s
+    def __eq__(self, other):
+            if len(self.str)!=1 or len(other)!=1:
+                raise Exception(f'It is illegal to compare strings of lengh greater than 1: "{self.str}", "{other.str}"')
+            return self.str==other
+    def __le__(self, other):
+            if len(self.str)!=1 or len(other)!=1:
+                raise Exception(f'It is illegal to compare strings of lengh greater than 1: "{self.str}", "{other.str}"')
+            return self.str<other
+
+    def __contains__(self, item):
+            raise Exception(f'Illegal call to "in"')
+    def __getitem__(self, key):
+        if not isinstance(key, int):
+            raise Exception(f'Illegal call [{key}]')
+        return self.str[key]
+
+    def lower(self):
+        raise Exception('Illegal call')
+
+@total_ordering
+class WrapperLst(list):
+    def __init__(self, l: list):
+        self.list = l
+
+    def __eq__(self, other):
+        raise Exception('It is illegal to compare lists')
+
+    def __le__(self, other):
+        raise Exception('It is illegal to compare lists')
+
+    def __contains__(self, item):
+            raise Exception(f'Illegal call to "in"')
+
+    def __getitem__(self, key):
+        if not isinstance(key, int):
+            raise Exception(f'Illegal call [{key}]')
+        return self.list[key]
+
+
+import hashlib
+fhs = open('MD5').read().split()
+hs = hashlib.md5(open(fhs[1],'rb').read()).hexdigest()
+assert hs == fhs[0].strip(), 'The testing file has been modified'
+
+def runtests(tests, fun,
+             equals=lambda x,y: x==y,
+             keep_originals=False, is_proc=False):
+    for test, ex_res in tests:
+        print(f'"{test}", "{ex_res}"....', end='')
+        if inspect.isclass(ex_res) and issubclass(ex_res, Exception):
+            try:
+                res = fun(*test)
+            except ex_res:
+                print('OK')
+            else:
+                assert False, 'The arguments are illegal and not detected'
+        else:
+            if keep_originals:
+                test_ori = copy(test)
+            if not is_proc:
+                res = fun(*test)
+                assert equals(res, ex_res), f'Error, the result is "{res}"'
+                if keep_originals:
+                    assert test == test_ori, \
+                        f'The originals values has been modified: {test} {test_ori}'
+            else:
+                res = fun(*test)
+                assert res is None, 'The function must not return a value'
+                assert equals(test, ex_res), f'The modified vaule is {test}'
+            print('OK.')
+
+
+def test_frequency():
+    tests = [
+        (('desta manera?: «Apenas había', ), {'apenas':1, 'desta':1, 'había':1, 'manera':1}),
+        (('desta manera?: «Apenas había apenas', ), {'apenas':2, 'desta':1, 'había':1, 'manera':1}),
+        (('', ), {}),
+        (('tres uno TRES Tres dos doS', ), {'uno':1, 'dos':2, 'tres':3}),
+    ]
+    runtests(tests, words.frequency)
+
+
+def is_close_dict(d1, d2):
+    d1 = d1[0]
+    for w in d1:
+        if not math.isclose(d1[w], d2[w]):
+            return False
+    for w in d2:
+        if not math.isclose(d1[w], d2[w]):
+            return False
+    return True
+
+def test_frequency_rel():
+    tests = [
+        (({'uno':1, 'dos':2, 'tres':3}, ), {'uno':1/6, 'dos':1/3, 'tres':1/2} ),
+        (({'uno':1, 'dos':1, 'tres':2}, ), {'uno':1/4, 'dos':1/4, 'tres':1/2} )
+    ]
+    runtests(tests, words.frequency_rel, equals=is_close_dict, is_proc=True)

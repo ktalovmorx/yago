@@ -1,0 +1,292 @@
+\documentclass[a4paper,10pt]{article}
+%\usepackage{ulem}
+% \usepackage{fancybox,framed}
+\usepackage{amssymb,latexsym}
+\usepackage[dvips]{color}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+  {Ã}{{\~A}}1 {Ẽ}{{\~E}}1 {Ĩ}{{\~I}}1 {Õ}{{\~O}}1 {Ũ}{{\~U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {Ø}{{\O}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1
+}
+
+
+\lstset{basicstyle=\ttfamily\fontsize{8}{9}\selectfont,
+        framerule=0pt,frame=single, %frame=trBL,frameround=ftttm,
+        lineskip=0pt,
+        emptylines=1,
+        showstringspaces=false,
+        escapechar=·,
+        language=Python
+}
+
+%\usepackage{graphicx}
+%\usepackage{pstricks}
+%\usepackage{pst-node}
+
+%\setlength{\textwidth}{16.4cm}
+%\setlength{\textheight}{24.5cm}
+%\setlength{\topmargin}{-2cm}
+%\setlength{\oddsidemargin}{-0.2cm}
+%\setlength{\evensidemargin}{-0.2cm}
+%\pagestyle{empty}
+%
+\setlength{\textwidth}{17.5cm} \setlength{\textheight}{27cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\oddsidemargin}{-0.4cm}
+\setlength{\evensidemargin}{-0.4cm} \pagestyle{empty}
+%
+\newtheorem{ej}{Ejercicio}
+\newenvironment{ejercicio}{\begin{ej}\begin{em}}{\end{em}\end{ej}}
+%\def\dashuline{\bgroup
+%               \ifdim\ULdepth=\maxdimen  % Set depth based on font, if not set already
+%                \settodepth\ULdepth{(j}\advance\ULdepth.4pt\fi
+%               \markoverwith{\kern.15em
+%               \vtop{\kern\ULdepth \hrule width .3em}%
+%               \kern.15em}\ULon}
+%
+\begin{document}
+
+%\begin{enumerate}\setlength{\itemsep}{0ex minus0.2ex}\setlength{\parsep}{0.5ex plus0.2ex minus0.1ex}
+  % \item Hoy en día programar es una carrera entre los ingenieros del software intentando construir mayores y mejores programas a prueba de idiotas, y el Universo tratando de producir mayores y mejores idiotas. Por ahora, el Universo va ganando. (Rich Cook)
+   %\item Un ordenador es como el Dios del Antiguo Testamento, con un mont\'on de reglas y sin piedad. (Joseph Campbell)
+%\end{enumerate}
+\section*{Polimorfismos de nucleótido único}
+%
+Los \textbf{polimorfismos de nucleótido único} (SNPs) son el tipo de
+variación genética más habitual entre las personas. Un polimorfismo
+consiste en el cambio de un nucleótido (adenina, guanina, citosina,
+timina) en una posición concreta del ADN con respecto a un genoma de
+referencia, y que se encuentra al menos en el 1 por ciento de la
+población. La mayoría de estos polimorfismos no tienen efectos en el
+desarrollo y la salud, pero unos pocos sí pueden tener consecuencias
+en el fenotipo. El fenotipo es la expresión del genotipo que puede
+observarse (aunque está parcialmente determinado por el
+entorno). Estos polimorfismos afectarían a nuestra susceptibilidad a
+padecer determinadas enfermedades o a metabolizar ciertas sustancias
+de forma diferente.
+
+Por ejemplo, en la población de origen europeo, la intolerancia genética a la lactosa (hipolactasia) está causada por un polimorfismo consistente en el cambio de un único nucleótido en la posición 13910 del gen MCM6, el cual regula la producción de lactasa (enzima que metaboliza la lactosa). En poblaciones de otro origen (asiáticos, africanos), la hipolactasia está causada por  polimorfismos diferentes en este mismo gen. Existe además otro tipo de intolerancia a la lactosa (intolerancia secundaria), cuyo origen no es genético y que puede producirse por una gastroenteritis infecciosa, otras enfermedades intestinales, o incluso algunos medicamentos. La intolerancia secundaria desaparece cuando se resuelve la causa que la induce.
+
+En otros casos (la mayoría), son necesarios varios polimorfismos (de un mismo gen o de genes distintos) para obtener un fenotipo concreto, es decir, el grado de expresión de dicho fenotipo está determinado por la combinación de sus polimorfismos relacionados. Por ejemplo, hay evidencia científica del papel de varios polimorfismos en genes del sistema dopaminérgico en la patogénesis de la migraña.
+
+El objetivo de la práctica es la implementación de una aplicación que
+facilite el tratamiento de ciertos datos relacionados con algunos
+polimorfismos de nucleótido único.
+
+De modo consensuado, cada polimorfismo se identifica con un código \lstinline{rs}, que se emplea en las bases de datos de referencia (por ejemplo, \textit{dbSNP}) y en investigación.
+        En esta ocasión, toda la información de los polimorfismos se almacena en el fichero \lstinline{dataSNP.txt}, cuyas líneas tienen la estructura siguiente:
+        \begin{itemize}\setlength{\itemsep}{0ex minus0.2ex}\setlength{\parsep}{0.5ex plus0.2ex minus0.1ex}\vspace*{-1ex}
+                \item Código \lstinline{rs}: cadena de caracteres de la forma $\mathtt{rsd^{+}}$, donde $\mathtt{d^{+}}$ es una cadena no vacía de dígitos.
+                \item Nucleótidos: cadena de caracteres de la forma \lstinline{N/N}, donde $\mathtt{N\!\in\!\{A, G, C, T\}}$.
+                     \item Patologías: Las patologías relacionadas con el polimorfismo separadas por comas.
+        \end{itemize}\vspace*{-1ex}
+        A continuación, mostramos las líneas del fichero \lstinline{dataSNP.txt} correspondientes a los polimorfismos \lstinline{rs4420638} y \lstinline{rs6313}:\\
+        \hspace*{3ex}\lstinline{rs4420638 A/G: enfermedad de Alzheimer, hipercolesterolemia, cardiopatías} \\
+        \hspace*{3ex}\lstinline{rs6313 C/C: artritis reumatoide} \\
+        \hspace*{3ex}\lstinline{rs6313 T/T: depresión, trastorno de pánico} \\
+        \hspace*{3ex}\lstinline{rs6313 C/T: artritis reumatoide} \\
+        Estos datos muestran que el SNP \lstinline{rs4420638}
+        \lstinline{A}denina/\lstinline{G}uanina está relacionado con
+        la enfermedad de Alzheimer, la hipercolesterolemia y
+        cardiopatías sin especificar. Análogamente, dos de las
+        variaciones del polimorfismo \lstinline{rs6313}
+        (\lstinline{C}itosina/\lstinline{C}itosina,
+        \lstinline{C}itosina/\lstinline{T}imina) participan en el
+        desarrollo de la artitris reumatoide, mientras que el SNP
+        \lstinline{rs6313} \lstinline{T}imina/\lstinline{T}imina se
+        liga tanto a la depresión como al trastorno de pánico. Por
+        otra parte, se asume que el fichero puede contener líneas que
+        comienzan con el símbolo \lstinline{\#}, las cuales dan
+        información provisional y/o adicional que no será procesada.
+
+        La información del fichero \lstinline{dataSNP.txt} debe volcarse en un diccionario cuyas claves son los códigos \lstinline{rs} de los polimorfismos. Cada código tiene asociado otro diccionario cuyas claves son los nucleótidos del SNP correspondiente y los valores son las las patologías asociadas al SNP. Por ejemplo, en el diccionario, el par correspondiente al polimorfismo \lstinline{rs6313} debe ser equivalente al siguiente:\\
+        \hspace*{3ex}
+\begin{lstlisting}
+`rs6313':{'C/T':{`artritis reumatoide'},
+          'C/C':{`artritis reumatoide'},
+          'T/T':{`depresión', 'trastorno de pánico'}
+\end{lstlisting}
+
+
+%
+\begin{enumerate}
+
+\item En primer lugar vamos a realizar una función
+  \lstinline|get_data(line: str) -> (str, str, set[str])|
+  que dada una línea
+  del fichero de datos nos devuelva una terna  \lstinline{(rs_code, code_n, pats)}
+  También podemos representar un SNP mediante una terna
+  \lstinline{(rs_code, code_n, pats)}, donde \lstinline{rs_code} es un
+  código \lstinline{rs}, \lstinline{code_n} es un par de nucleótidos
+  \lstinline{N/N}, y \lstinline{pats} es un conjunto de patologías
+  relacionadas. Por ejemplo, de la línea
+\begin{lstlisting}[]
+rs4420638 A/G': 'enfermedad de Alzheimer', 'hipercolesterolemia', 'cardiopatías'
+\end{lstlisting}
+  obtendermos la tupla\\
+  \lstinline|('rs4420638','A/G', {'enfermedad de Alzheimer', 'hipercolesterolemia', 'cardiopatías'})|
+
+  Las enfermedades se almacenarán en minúsculas. Usa correctamente los
+  métodos \lstinline|split|, \lstinline|strip| y \lstinline|lower| de
+  las cadenas de caracteres de Python.
+
+\item
+  Implementa una función
+\begin{lstlisting}
+add_data(snp: dict, rs_code: str, code_n: str, pats: set[str]) -> None:
+\end{lstlisting}
+  que dados un diccionario \lstinline{snp} de polimorfismos, un código
+  \lstinline|rs_code|, un par de nucleótidos \lstinline|code_n| y unas
+  patologías \lstinline|pats|,
+  incluya la información del SNP en el diccionario. La función no solo debe incorporar nuevos polimorfismos sino también actualizar los SNPs existentes.
+
+Por ejemplo, supongamos que \lstinline{dict_snp} contiene el par siguiente: \\
+\begin{lstlisting}
+'rs6313': {'C/T': {'artritis reumatoide'},
+           'C/C': {'artritis reumatoide'},
+           'T/T': {'depresión', 'trastorno de pánico'}}
+\end{lstlisting}
+
+
+entonces la ejecución de la llamada
+\lstinline|add_data(dict_snp, `rs6313',`C/T', {'mesotelioma'})| lo modifica del modo siguiente: \\
+\begin{lstlisting}
+'rs6313': {'C/T': {'artritis reumatoide', 'mesotelioma'},
+           'C/C': {`artritis reumatoide'},
+           'T/T': {`depresión',`trastorno de pánico'}}
+\end{lstlisting}
+
+\item
+  Diseña una función llamada \lstinline{read_snp(filename: str) -> dict} que,
+  dado el nombre de un fichero con la estructura indicada, lea
+  su información y devuelva un diccionario que la contenga con
+  de polimorfismos.
+
+\item Diseña una función
+\begin{lstlisting}
+remove_snp(snp: dict, rs_code: str, code_n: str, pats: set[str])-> None
+\end{lstlisting}
+  que, dados un
+  diccionario \lstinline{snp} de polimorfismos y la tupla
+  \lstinline{tuple_snp} de un SNP, elimine los datos del SNP del
+  diccionario, siguiendo el criterio indicado a continuación: sea
+  \lstinline{p} el SNP en \lstinline{dict_snp} cuyos código y
+  nucleótidos son \lstinline{rs_code} y
+  \lstinline{code_n}. Si el conjunto \lstinline{pats}
+  es vacío, entonces borraremos de
+  \lstinline{p} todas sus patologías relacionadas, y en caso
+  contrario, eliminaremos solo las patologías enumeradas en
+  \lstinline{pats}. Si tras esta modificación la lista de
+  \lstinline{p} esta vacía, entonces borraremos de
+  \lstinline{snp} el diccionario \lstinline|code_n:{}|. Después de esto,
+  si el polimorfismo no presenta variaciones en \lstinline{snp}
+  (esto es, el diccionario de \lstinline{rs_code} está vacío), entonces
+  eliminaremos de \lstinline{snp} el diccionario \lstinline|rs_code:{}|.
+
+  Por ejemplo, supongamos que \lstinline{snp} contiene el par siguiente:\\
+  \lstinline|'rs1800497':{'C/T':{'alcoholismo','tabaquismo','obesidad'}}|
+  entonces la ejecución de la llamada \\
+  \lstinline|remove_snp(dict_snp,('rs1800497','C/T',{'tabaquismo'}))| lo modifica del modo siguiente:\\
+  \lstinline|'rs1800497':{'C/T':{'alcoholismo','obesidad'}}|\\
+  y la ejecución de \lstinline|remove_snp(dict_snp,('rs1800497','C/T',{'obesidad','alcoholismo'}))| lo elimina definitivamente del diccionario.
+
+   \item Implementa una función
+     \lstinline|get_snpinfo(snp: dict, pats: set[str]) -> str[str, str]| que, dados un diccionario
+     \lstinline{snp} de polimorfismos y un conjunto
+     \lstinline{pats} de patologías,
+     devuelva un conjunto pares de la forma \\
+     \lstinline{(rs_code, code_n)} de modo que todas las patologías de \lstinline{pats} estén relacionadas con todos los SNP del resultado.
+
+     Por ejemplo,  supongamos que \lstinline{dict_snp} cocntiene el par siguiente: \\
+\begin{lstlisting}
+     'rs4420638':{'A/G': {'enfermedad de alzheimer',
+                          'hipercolesterolemia', 'cardiopatías'},
+                  'G/G': {'enfermedad de alzheimer',
+                          'hipercolesterolemia'}
+\end{lstlisting}
+     entonces la lista que resulta de la llamada
+     \lstinline|get_snpinfo(dict_snp, {'hipercolesterolemia'})|
+     incluye los pares \lstinline{('rs4420638','A/G')} y
+     \lstinline{('rs4420638','G/G')}.
+     Sin embargo, el último SNP no aparece entre los resultados de la
+     llamada \\
+     \lstinline|get_snpinfo(dict_snp, {'cardiopatías', 'hipercolesterolemia'})|,
+     ya que el el SNP \lstinline{rs4420638}
+     \lstinline{G}uanina/\lstinline{G}uanina no está relacionado con las cardiopatías.
+
+
+  \item A continuación vamos a realizar algunos análisis sobre los
+    SNP.
+    \begin{enumerate}
+    \item En primer implementa una función
+      \lstinline|get_snps(snp: list[dict]) -> dict| que
+      devuelve un diccionario, las claves son
+      códigos \lstinline|rs| y el valor es un entero que indica
+      las patologías asociadas al código \lstinline|rs|.
+
+      Por ejemplo, si el diccionario \lstinline|snp| contiene el dato
+\begin{lstlisting}
+'rs4420638': {'A/G':{'enfermedad de alzheimer',
+                     'hipercolesterolemia',
+                     'cardiopatias'},
+              'G/G':['enfermedad de alzheimer',
+                     'hipercolesterolemia']}}
+\end{lstlisting}
+    La lista resultante contendrá la clave \lstinline|'rs4420638'|
+    con valor 3.
+
+  \item Realiza una función
+    \lstinline|mean_ocurrences(snps: dict) -> float|
+    Que devuelva la media de las apariciones en alguna patología en
+    los \lstinline{SNP}s, es decir las medias de los valores del duccionario.
+  \item Realiza una función
+    \lstinline|mode_ocurrences(snps: dict) -> int|
+    que calcule la moda de las apariciones en alguna patología en
+    los \lstinline{SNP}s, es decir la moda de los valores.
+  \item Realiza una función
+    \lstinline|median_ocurrences(snps: dict) -> float|
+    que calcule la mediana de las apariciones en alguna patología en
+    los \lstinline{SNP}s, es decir la mediana de los valores
+    \end{enumerate}
+
+   \item Implementa una función llamada
+     \lstinline{write_snp(snp: dict, filename: str) -> None}
+     que, dados un diccionario \lstinline{snp} de polimorfismos y
+     el nombre de un fichero nuevo,
+     almacene en este último el contenido de \lstinline{snp} respetando el formato especificado en el primer apartado.
+
+     Por ejemplo, supongamos que \lstinline{dict_snp} contiene el par siguiente: \\
+\begin{lstlisting}
+'rs6313': { 'C/T': {'artritis reumatoide'},
+            'C/C': {'artritis reumatoide'},
+            'T/T': {'depresión','trastorno de pánico'}
+\end{lstlisting}
+entonces la ejecución de la llamada \lstinline{write_snp(dict_snp, 'dataSNPfinal.txt')} almacena en el fichero \lstinline{dataSNPfinal.txt} las líneas siguientes:  \\
+\begin{lstlisting}
+rs6313 C/T: artritis reumatoide
+rs6313 C/C: artritis reumatoide
+rs6313 T/T: depresión, trastorno de pánico
+\end{lstlisting}
+\end{enumerate}
+%
+\noindent
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

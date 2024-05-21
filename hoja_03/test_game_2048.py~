@@ -1,0 +1,6 @@
+def test_move_row():
+    game = {
+        'board' = [[0, 2, 0, 0]]
+    }
+    move_row(game, 0, 3, 0)
+    print(game)

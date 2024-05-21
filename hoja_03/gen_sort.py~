@@ -1,0 +1,6 @@
+import random
+
+lst = [random.randint(0,999) for _ in range(100)]
+lst.sort()
+for n in lst:
+    print(n)
